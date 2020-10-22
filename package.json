@@ -1,6 +1,6 @@
 {
   "name": "@mkishereoficial/yt_search",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Um pack simples para yt-search",
   "main": "main.js",
   "scripts": {
