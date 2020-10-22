@@ -82,7 +82,7 @@ async function multi_search(value, maxVideos) {
 	const results = await yts(value);
 
 	const vids = results.videos.slice( 0, maxVideos );
-	const videos = videos.map(video => {
+	const videos = await vids.map(async (video) => {
 		let obj = {
 			duration: video.timestamp,
 			title: video.title,
@@ -132,7 +132,7 @@ async function multi_search(value, maxVideos) {
 	  return obj;
 	});
 
-	return videos;
+	return await videos;
 }
 
 module.exports = search;
