@@ -4,7 +4,7 @@
   "description": "Um pack simples para yt-search",
   "main": "main.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "echo \"Teste, teste, teste!\""
   },
   "repository": {
     "type": "git",
