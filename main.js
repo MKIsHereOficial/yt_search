@@ -69,8 +69,8 @@ async function search (value) {
 
   return obj;
 }
-async function multi_search(value, maxVideos) {
-	if (!value) throw new Error("O Valor da Pesquisa não foi identificado. Verifique se é uma String.");
+async function multi_search(searchValue, maxVideos) {
+	if (searchValue.length <= 0) throw new Error("O Valor da Pesquisa não foi identificado. Verifique se é uma String.");
 
 	if (!maxVideos) {
 		console.log(`Você não espeficou o parâmetro maxVideos. Este deve ser um número, no qual especifica-se o número máximo de vídeos no array.`)
@@ -79,11 +79,12 @@ async function multi_search(value, maxVideos) {
 		throw new Error("O parâmetro maxVideos deve ser um número, no qual especifica-se o número máximo de vídeos no array.");
 	}
 
-	const results = await yts(value);
+	const r = await yts(searchValue);
+	if (!r.videos) throw new Error("Nenhum vídeo foi encontrado.");
 
-	const vids = results.videos.slice( 0, maxVideos );
+	const vids = r.videos.slice( 0, maxVideos );
 	const videos = await vids.map(async (video) => {
-		let obj = {
+		const obj = {
 			duration: video.timestamp,
 			title: video.title,
 			url: video.url,
@@ -132,10 +133,13 @@ async function multi_search(value, maxVideos) {
 	  return obj;
 	});
 
-	return await videos;
+	if (!videos) throw new Error("Nenhum vídeo foi encontrado.");
+
+	return videos;
 }
 
 module.exports = search;
+module.exports.multi = multi_search;
+module.exports.search = multi_search;
 module.exports.language = language;
 module.exports.version = version;
-module.exports.search = multi_search;
