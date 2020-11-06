@@ -1,3 +1,4 @@
-./node_modules
+./node_modules/
 ./update.cmd
 .npmrc
+./test.js
