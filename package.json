@@ -1,6 +1,6 @@
 {
   "name": "yt-search_plus",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Um pack simples para yt-search",
   "main": "main.js",
   "maintainers": [
@@ -14,7 +14,7 @@
   "scripts": {
     "test": "node test.js",
     "postpublish": "echo \"Pacote publicado!\"",
-    "prepublish": "color e0 && echo \"Publicando...\""
+    "prepublish": "color 0b && echo \"Publicando...\""
   },
   "repository": {
     "type": "git",
