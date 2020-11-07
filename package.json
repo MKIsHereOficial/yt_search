@@ -1,8 +1,16 @@
 {
   "name": "yt-search_plus",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Um pack simples para yt-search",
   "main": "main.js",
+  "maintainers": [
+    {
+      "name": "GokuroHype",
+      "email": "gokurohype@gmail.com"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "readme": "README.md",
   "scripts": {
     "test": "node test.js",
     "postpublish": "echo \"Pacote publicado!\"",
@@ -22,8 +30,11 @@
     "yt-search",
     "youtube-search"
   ],
-  "author": "MKIsHereOficial",
-  "license": "ISC",
+  "author": {
+    "name": "MKIsHereOficial",
+    "email": "gokurohype@gmail.com"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MKIsHereOficial/yt_search/issues",
     "email": "gokurohype@gmail.com"
