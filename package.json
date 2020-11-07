@@ -1,17 +1,20 @@
 {
-  "name": "@mkishereoficial/yt_search",
+  "name": "yt-search_plus",
   "version": "0.1.0",
   "description": "Um pack simples para yt-search",
   "main": "main.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "postpublish": "echo \"Pacote publicado!\"",
+    "prepublish": "color e0 && echo \"Publicando...\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MKIsHereOficial/yt_search.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
   },
   "keywords": [
     "youtube",
@@ -22,11 +25,13 @@
   "author": "MKIsHereOficial",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MKIsHereOficial/yt_search/issues"
+    "url": "https://github.com/MKIsHereOficial/yt_search/issues",
+    "email": "gokurohype@gmail.com"
   },
   "homepage": "https://github.com/MKIsHereOficial/yt_search#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "^4.0.0",
     "yt-search": "^2.3.3"
-  }
+  },
+  "private": false
 }
