@@ -33,26 +33,7 @@ async function search (value) {
 		thumbnailURL: function get () {
 			return video.thumbnail;
 		},
-		ago: (async (event) => {
-			let a = video.ago;
-			let b = await traduzir("Indisponível");
-
-			if (!a) {
-				return b;
-			}
-
-			await translate(a, {to: language}).then(res => {
-				return b = res.text;
-			}).catch(err => {
-    		throw console.error(err);
-			});
-
-      if (language != "en") {
-			     return b;
-      }
-
-      return a;
-		})(),
+		ago: video.ago,
 		author: {
 			name: video.author.name,
 			url: video.author.url,
@@ -96,26 +77,7 @@ async function multi_search(searchValue, maxVideos) {
 			thumbnailURL: function get () {
 				return video.thumbnail;
 			},
-			ago: (async (event) => {
-				let a = video.ago;
-				let b = await traduzir("Indisponível");
-
-				if (!a) {
-					return b;
-				}
-
-				await translate(a, {to: language}).then(res => {
-					return b = res.text;
-				}).catch(err => {
-	    		throw console.error(err);
-				});
-
-	      if (language != "en") {
-				     return b;
-	      }
-
-	      return a;
-			})(),
+			ago: video.ago,
 			author: {
 				name: video.author.name,
 				url: video.author.url,
