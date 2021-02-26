@@ -2,3 +2,4 @@
 ./update.cmd
 .npmrc
 ./test.js
+.gitpod.*
