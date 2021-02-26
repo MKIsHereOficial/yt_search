@@ -1,3 +1,6 @@
+[![license](https://img.shields.io/github/license/MKIsHereOficial/yt_search?style=for-the-badge)](https://github.com/MKIsHereOficial/yt_search)
+[![issues](https://img.shields.io/github/issues/MKIsHereOficial/yt_search?style=for-the-badge)](https://github.com/MKIsHereOficial/yt_search/issues)
+
 # yt_search
 Um repositório simples para yt-search.
 
