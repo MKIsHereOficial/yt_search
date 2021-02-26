@@ -1,4 +1,4 @@
-[![license](https://img.shields.io/github/license/MKIsHereOficial/yt_search?style=for-the-badge)](https://github.com/MKIsHereOficial/yt_search/blob/main/LICENSE.md)
+[![license](https://img.shields.io/github/license/MKIsHereOficial/yt_search?style=for-the-badge)](https://github.com/MKIsHereOficial/yt_search/blob/main/LICENSE)
 [![issues](https://img.shields.io/github/issues/MKIsHereOficial/yt_search?style=for-the-badge)](https://github.com/MKIsHereOficial/yt_search/issues)
 
 # yt_search
