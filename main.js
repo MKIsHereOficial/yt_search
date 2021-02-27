@@ -1,6 +1,8 @@
 const version = require("./package.json").version;
 
 const yts = require( 'yt-search' );
+const numeral = require('numeral'), {Duration} = require('luxon');
+
 
 let language = "pt";
 let translate = require('@vitalets/google-translate-api');
@@ -12,17 +14,37 @@ async function traduzir (value) {
 	return data;
 }
 
-async function search (value) {
+async function search (value, options) {
 	if (!value) throw new Error("O Valor da Pesquisa não foi identificado. VVerifique se é uma String.");
 
-	const r = await yts(value);
+    const r = await yts(value);
 
-	const videos = r.videos.slice( 0, 5 );
+    const videos = r.videos.slice( 0, 5 );
 
-	let video = videos[0];
+    let video = videos[0];
+    
+    let views = numeral(parseFloat(video.views));
+    views = {completeValue: views.value(), string: views.format('0a')};
+    let duration = video.timestamp;
+    duration = {string: duration, time: {}};
+
+    let durationS = duration.string.replace(":", "").replace(":", "");
+    if (durationS.length == 4) durationS = "00" + durationS;
+    if (durationS.length == 3) durationS = "000" + durationS;
+
+    durationS = {
+        0: durationS[0] + "" +durationS[1],
+        1: durationS[2] + "" +durationS[3],
+        2: durationS[4] + "" +durationS[5]
+    };
+
+    duration.string = durationS[0] + ":" + durationS[1] + ":" + durationS[2];
+    duration.time = {seconds: Duration.fromISOTime(duration.string).toMillis() / 1000, milli: Duration.fromISOTime(duration.string).toMillis()};
+
+    ///////////////////////////////////////////////////////////////////
 
 	let obj = {
-		duration: video.timestamp,
+		duration: duration,
 		title: video.title,
 		url: video.url,
 		id: video.videoId,
@@ -33,21 +55,37 @@ async function search (value) {
 		thumbnailURL: function get () {
 			return video.thumbnail;
 		},
-		ago: video.ago,
+		ago: (async => {
+            if (options) {
+                if (options.lang) {
+                    switch (options.lang.toLowerCase()) {
+                        case "pt-br":
+                            return video.ago.replace('months', "meses").replace('month', "mês").replace("ago", "atrás");
+                            break;
+                        case "pt_br":
+                            return video.ago.replace('months', "meses").replace('month', "mês").replace("ago", "atrás");
+                            break;
+                        default:
+                            return video.ago;
+                            break;
+                    }
+                }
+            } else {
+                return video.ago;
+            }
+        })(),
 		author: {
 			name: video.author.name,
 			url: video.author.url,
 			},
+		views
+    };
+    
+    obj.downloadURL = (async => {
+        let url = `https://www.y2mate.com/pt/youtube/${obj.id}`;
 
-		views: video.views.toLocaleString(),
-		downloadURL: function get () {
-			let url = `https://www.y2mate.com/pt/youtube/${this.id}`;
-
-			return url;
-		}
-
-	};
-
+        return url;
+    })();
   return obj;
 }
 async function multi_search(searchValue, maxVideos) {

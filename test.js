@@ -1,8 +1,8 @@
-async function test() {
+async function test(options) {
   const yts = await require('./main.js');
-  let video = await yts('beabadoobee - Coffe for your head remix');
+  let video = await yts('beabadoobee - Coffe for your head remix', options);
 
   console.log(video);
 }
 
-test();
+test({lang: 'pt-br'});

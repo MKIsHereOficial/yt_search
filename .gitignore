@@ -1,5 +1,5 @@
-./node_modules/
-./update.cmd
+node_modules/
+update.cmd
 .npmrc
 ./test.js
 .gitpod.*
