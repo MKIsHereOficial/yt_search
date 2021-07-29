@@ -22,12 +22,12 @@ console.log(video.url);
 Para uma pesquisa múltipla:
 ```js
 const yts = require("@mkishereoficial/yt_search");
-let videos = await yts.multi("Katy Perry", 9); // ou yts.search
+let videos = await yts.multi("Katy Perry", 9); // "Katy Perry" = query, 9 = limite de resultados
 let video = await videos[0];
 
 console.log(videos);
 
 console.log(`\n\n` + video.url);
-// > videos retorna um Array de Objetos, cada um contendo suas próprias informações. o limite que eu dei foi de 15, mas pode ser qualquer número o padrão é 5.
+// > videos retorna um Array de Objetos, cada um contendo suas próprias informações. o limite que eu dei foi de 15, mas pode ser qualquer número (o padrão é 5).
 // video retorna um Objeto (Object) contendo as informações do vídeo
 ```
