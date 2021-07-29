@@ -58,12 +58,9 @@ async function search (value, options) {
 		ago: (async => {
             if (options) {
                 if (options.lang) {
-                    switch (options.lang.toLowerCase()) {
-                        case "pt-br":
-                            return video.ago.replace('months', "meses").replace('month', "mês").replace("ago", "atrás");
-                            break;
-                        case "pt_br":
-                            return video.ago.replace('months', "meses").replace('month', "mês").replace("ago", "atrás");
+                    switch (`${options.lang.toLowerCase()[0]}${options.lang.toLowerCase()[1]}`) {
+                        case "pt":
+                            return video.ago.replace('year', "ano").replace('years', "anos").replace('months', "meses").replace('month', "mês").replace("ago", "atrás");
                             break;
                         default:
                             return video.ago;
