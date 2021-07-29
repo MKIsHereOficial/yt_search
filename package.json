@@ -14,7 +14,7 @@
   "scripts": {
     "test": "node test.js",
     "postpublish": "echo \"Pacote publicado!\"",
-    "prepublish": "color 0b && echo \"Publicando...\""
+    "prepublish": "echo \"Publicando...\""
   },
   "repository": {
     "type": "git",
